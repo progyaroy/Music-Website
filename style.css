@@ -5,15 +5,22 @@
     padding: 0;
 }
 nav{
+    display: block;
+    margin-top: 0px;
+    height: 60px;
     font-family: 'Ubuntu', sans-serif;
+    position: fixed;
 }
 nav ul{
+  
+    width: 1920px;
     display: flex;
     list-style-type: none;
     align-items: center;
     height: 60px;
     background-color: rgb(29, 1, 1);
     color: white;
+    border-bottom: 0.5px solid rgb(64, 65, 65);
 }
 
 .brand img{
@@ -32,6 +39,7 @@ nav ul{
 nav ul li{
     display: flex;
     padding: 5px 15px;
+    
 }
 .navitem{
     display: flex;
@@ -56,31 +64,36 @@ nav ul li{
     border-radius: 40px;
     box-sizing: border-box;
     padding: 0 5px;
-background-color: rgb(200, 158, 158);
+background-color: rgb(255, 255, 255);
+opacity: 0.5;
 }
-.body1{
-    min-height: 75vh;
-    
+.area{
+    /*min-height: 75vh;
+    max-width: 1440px;*/
+    width: 100%;
+    height: 90%;
     color: black;
-    border-top: 0.5px solid rgb(64, 65, 65) ;
-    border-bottom: 0.5px solid rgb(64, 65, 65);
     
     display: flex;
 }
-body .sidebar{
+.area .sidebar{
+    position:fixed;
     width: 15%;
+    height:1000px;
+    margin-top: 60px;
     color: rgb(231, 229, 229);
     background-color: rgb(18, 9, 29);
-    
+    /*border: 1px solid #fff;*/
     font-family: 'Ubuntu', sans-serif;
     font-weight:lighter;
     font-size:x-small;
     padding: 15px 15px;
+    border-top: 0.5px solid rgb(64, 65, 65);
 }
 .menu{
     margin-top: 10px;
     padding: 15px 4px;
-font-family: 'Satisfy', cursive;
+    font-family: 'Satisfy', cursive;
     font-weight: lighter;
     color: gray;
     cursor: pointer;
@@ -89,8 +102,12 @@ font-family: 'Satisfy', cursive;
 .menu :hover{
     color: white;
 }
-body .mainArea{
+.area .mainArea{
+    margin-left: 255px;
+    /*border: 1px solid #fff;*/
     width: 85%;
+    height: 2000px;
+    margin-top: 59px;
     background-color: black;
     font-family: 'Sacramento', cursive;
     color: white;
@@ -98,11 +115,12 @@ body .mainArea{
     font-size: xx-large;
     align-items: center;
    padding: 10px 15px;
-    background-image: url(sgbg1.jpg);
+    background-image: url(img/sgbg1.jpg
+    );
     background-repeat: no-repeat;
     background-position-x: right;
 }
-.trending{
+.area .mainArea .trending{
     width: 850px;
     height: 30px;
     margin-top: 5px;
@@ -112,8 +130,8 @@ body .mainArea{
     color: rgb(169, 168, 168);
     font-weight: lighter;
 }
-.trSongs {
-    list-style-type: none;
+.area .mainArea .trending .trSongs {
+    
     width: 850px;
         height: 180px;
         margin: auto;
@@ -123,7 +141,7 @@ body .mainArea{
         padding: 5px 0;
         list-style-type: none;
 }
-.trSongs li{
+.area .mainArea .trending .trSongs li{
     padding: 0 10px;
     min-width: 160px;
         height: 185px;
@@ -132,28 +150,29 @@ body .mainArea{
         justify-content: center;
 }
 
-.trSongs li .imgPlay{
-    position: relative;
+.area .mainArea .trending .trSongs li .imgPlay{
+   
     width: 160px;
     height: 145px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.trSongs li .imgPlay img{
+.area .mainArea .trending .trSongs li .imgPlay img{
     width: 100%;
     height: 100%;
 }
-.trSongs li .imgPlay .bi{
+.area .mainArea .trending .trSongs li .imgPlay .bi{
     position: absolute;
-    font-size: 20px;
+    font-size: 30px;
     cursor: pointer;
-    /*opacity: 0;*/
+    opacity: 0.5;
 }
-.trSongs li :hover .imgPlay .bi{
-   
+.area .mainArea .trending .trSongs li .imgPlay .bi :hover  {
+    opacity:1;
 }
-.trSongs li h6{
+
+.area .mainArea .trending .trSongs li h6{
     line-height: 15px;
     width: 160px;
     font-size: 12px;
@@ -162,35 +181,166 @@ body .mainArea{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    cursor: pointer;
 }
-.trSongs li h6 .singer{
+.area .mainArea .trending .trSongs li h6 .singer{
     color: rgb(119, 117, 117);
 }
+.area .mainArea .artists{
+    width: 900px;
+    height: 30px;
+   /* border: 1px solid #fff;*/
+    margin-top: 200px;
+    
+}
+.area .mainArea .artists h6{
+    font-family: 'Sacramento', cursive;
+    color: rgb(169, 168, 168);
+    font-weight: bolder;
+}
+.mainArea .artists .topartists{
+    list-style-type: none;
+        width: 900px;
+        height: 150px;
+        /*border: 1px solid #fff;*/
+        display: flex;
+        list-style-type: none;
+}
+.mainArea .artists .topartists li .dp{
+        width: 100px;
+        height: 100px;
+        display: flex;
+        padding: 4px 15px;
+        /*border: 1px solid #fff;*/
+        list-style-type: none;
+        
+}
+.mainArea .artists .topartists li .dp img{
+    width: 100%;
+    height: 100%;
+}
+.mainArea .artists .topartists li h6{
+    line-height: 15px;
+        width: 120px;
+        font-size: 12px;
+        padding: 5px 0 0 5px;
+        text-align: center;
+        color: darkgray;
+        font-family: 'Poppins', sans-serif;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+}
+
+.mainArea .songlist{
+        width: 98%;
+        height: 30px;
+        margin-top: 165px;
+        font-family: 'Sacramento', cursive;
+        padding: 5px 0;
+        color: rgb(203, 201, 201);
+        font-weight: lighter;
+        font-size: 23px;
+        border-bottom: 0.5px solid rgb(64, 65, 65);
+}
+.mainArea .songlist .song{
+    margin-top: 10px;
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    display: flex;
+    list-style-type: none;
+    /*border: 1px solid #fff;*/
+    align-items: center;
+    justify-content:left;
+    background: rgba(101, 102, 102, 0.2);
+    cursor: pointer;
+    
+}
+
+.mainArea .songlist .song img{
+    padding-left: 20px;
+    width: 40px;
+    height: 40px;
+
+}
+
+.mainArea .songlist .song .name h6{
+    padding: 0 8px;
+    font-size: 15px;
+    font-weight: normal;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    cursor: pointer;
+    
+    
+    
+}
+.subtitle{
+    font-size: 15px;
+    color: #a7a4a4;
+}
+
 .footer{
     position: sticky;
+    
     height: 110px;
     background-color: rgb(29, 1, 1);
     color: white;
     bottom: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-#playing{
-    width: 70vw;
-   margin-bottom: 8px;
-    cursor: pointer;
-   
     
+    border-top: 0.5px solid rgb(64, 65, 65);
 }
-.icons{
-    margin-bottom: 15px;
+
+.footer .currImg {
    
+   display: flex;
+    justify-content: center;
+    padding:30px 20px;
 }
-.icons i{
+.footer .currImg img{
+    width: 40px;
+    height: 40px;
+}
+.footer .currImg h5{
+    padding: 2px 10px;
+    width: 180px;
+    font-family: 'Poppins', sans-serif;
+    
+    font-size: large;
+    font-weight: bold;
+    overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+}
+
+#playing{
+    width: 40vw;
+   
+    cursor: pointer;
+    padding: 5px 0px;
+}
+ #start{
+    padding: 64px 20px;
+    padding-left: 150px;
+ }
+ #end {
+     padding: 64px 20px;
+     padding-right: 175px;
+ }
+.footer .icons{
+    margin-left: 0px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.footer .icons i{
     cursor: pointer;
     padding: 0 10px;
     align-items: center;
     margin-top: 5px;
+    font-size: 30px;
 }
