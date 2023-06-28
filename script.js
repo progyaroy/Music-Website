@@ -1,4 +1,4 @@
-let music = new Audio('audio/2.mp3');
+let music = new Audio('audio/1.mp3');
 //music.play();
 
 const songs = [
@@ -31,7 +31,13 @@ const songs = [
 ]
 
 
+const makeAllPlays=()=>{
 
+    Array.from(document.getElementsByTagName('songlistPlay')).forEach((el)=>{
+        el.style.background = 'rgba(101, 102, 102, .1)';
+
+    })
+}
 
 let playSong = document.getElementById('playSong');
 
@@ -51,7 +57,7 @@ let index = 0;
 let posterPlay= document.getElementById("posterPlay");
 let titlePlay= document.getElementById("titlePlay");
 
-Array.from(document.getElementsByClassName('songlistPlay')).forEach((e) => {
+Array.from(document.getElementsByClassName('song')).forEach((e) => {
     e.addEventListener('click',(e1) => {
         index = e1.target.id;
         console.log(index);
@@ -62,13 +68,95 @@ Array.from(document.getElementsByClassName('songlistPlay')).forEach((e) => {
         playSong.classList.add('bi-pause-circle');
 
         let songTitles= songs.filter((elm)=>{
-            return elm.id==index;
+        return elm.id==index;
         });
 
         songTitles.forEach(elm1=>{
             let {title} = elm1;
             titlePlay.innerHTML=title;
-
+        
         })
+      
     })
+})
+
+let start=document.getElementById('start');
+let end=document.getElementById('end');
+let bar=document.getElementById('bar');
+
+music.addEventListener('timeupdate',()=>{
+    let music_curr=music.currentTime;
+    let music_duration=music.duration;
+
+    let min1= Math.floor(music_duration/60);
+    let sec1=Math.floor(music_duration%60);
+
+    if(sec1<10){
+        sec1=`0${sec1}`;
+    }
+    end.innerText=`${min1}:${sec1}`;
+
+    let min2 = Math.floor(music_curr/60);
+    let sec2 = Math.floor(music_curr%60);
+
+    if(sec2<10){
+        sec2=`0${sec2}`;
+    }
+
+    start.innerText=`${min2}:${sec2}`;
+
+    let progress=parseInt((music_curr/music_duration)*100);
+    bar.value=progress;
+
+})
+bar.addEventListener('change',()=>{
+    music.currentTime =bar.value * music.duration/100;
+})
+
+let back= document.getElementById('back');
+let next= document.getElementById('next');
+
+
+back.addEventListener('click',()=>{
+    index-=1;
+    if(index<1){
+        index=Array.from(document.getElementsByClassName('song')).length/2;
+    }
+     music.src = `audio/${index}.mp3`;
+        posterPlay.src=`img/${index}.jpg`;
+        music.play();
+       playSong.classList.remove('bi-play-circle');
+        playSong.classList.add('bi-pause-circle');
+
+        let songTitles= songs.filter((elm)=>{
+        return elm.id==index;
+        });
+
+        songTitles.forEach(elm1=>{
+            let {title} = elm1;
+            titlePlay.innerHTML=title;
+        
+        })
+})
+
+next.addEventListener('click',()=>{
+    index+=1;
+     if(index> Array.from(document.getElementsByClassName('song')).length/2){
+        index=1;
+    }
+     music.src = `audio/${index}.mp3`;
+        posterPlay.src=`img/${index}.jpg`;
+        music.play();
+       playSong.classList.remove('bi-play-circle');
+        playSong.classList.add('bi-pause-circle');
+
+        let songTitles= songs.filter((elm)=>{
+        return elm.id==index;
+        });
+
+        songTitles.forEach(elm1=>{
+            let {title} = elm1;
+            titlePlay.innerHTML=title;
+        
+        })
 })
