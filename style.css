@@ -254,7 +254,7 @@ opacity: 0.5;
     /*border: 1px solid #fff;*/
     align-items: center;
     justify-content:left;
-    background: rgba(101, 102, 102, 0.2);
+    background: rgba(65, 66, 66, 0.2);
     cursor: pointer;
     
 }
@@ -316,9 +316,8 @@ opacity: 0.5;
         text-overflow: ellipsis;
 }
 
-#playing{
+#bar{
     width: 40vw;
-   
     cursor: pointer;
     padding: 5px 0px;
 }
