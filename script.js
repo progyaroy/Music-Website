@@ -61,7 +61,7 @@ Array.from(document.getElementsByClassName('song')).forEach((e) => {
     e.addEventListener('click',(e1) => {
         index = e1.target.id;
         console.log(index);
-        music.src = `audio/${index}.mp3`;
+        music.src= `audio/${index}.mp3`;
         posterPlay.src=`img/${index}.jpg`;
         music.play();
         playSong.classList.remove('bi-play-circle');
